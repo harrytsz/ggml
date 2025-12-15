@@ -2,6 +2,8 @@ This example shows how to implement YOLO object detection with ggml using pretra
 
 # YOLOv3-tiny
 
+首先，需要编译 yolov3-tiny ，否则无法使用 yolov3-tiny 指令：
+
 ```bash
 (base) harrytsz@sense:~/Workspace/Harrytsz-ggml/ggml$ cmake -B build
 -- Warning: ccache not found - consider installing it for faster compilation or disable this warning with GGML_CCACHE=OFF
@@ -90,8 +92,7 @@ car: 62%
 bicycle: 59%
 Detected objects saved in 'predictions.jpg' (time: 0.057000 sec.)
 ```
-
-Copy data/cocos.names to ~/Workspace/Harrytsz-ggml/ggml
+上述指令会报错，找不到 data/coco.names，需要将 data/cocos.names 拷贝到 ~/Workspace/Harrytsz-ggml/ggml 路径下：
 ```
 (base) harrytsz@sense:~/Workspace/Harrytsz-ggml/ggml$ ./build/bin/yolov3-tiny -m ./examples/yolo/yolov3-tiny.gguf -i ./examples/yolo/dog.jpg
 create_backend: using CPU backend
